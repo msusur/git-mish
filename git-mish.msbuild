@@ -1,0 +1,43 @@
+<Project DefaultTargets="CleanRestoreBuildTest" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <NuGetExe Condition="$(NuGetExe) == ''">.\.nuget\nuget.exe</NuGetExe>
+	 <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+     <CodeAnalysis Condition=" '$(CodeAnalysis)' == '' ">true</CodeAnalysis>
+     <StyleCopEnabled Condition=" '$(StyleCopEnabled)' == '' ">true</StyleCopEnabled>
+     <BuildInParallel Condition=" '$(BuildInParallel)' == '' And $(MSBuildNodeCount) &gt; 1 ">true</BuildInParallel>
+     <BuildInParallel Condition=" '$(BuildInParallel)' == '' ">false</BuildInParallel>
+  </PropertyGroup>
+  <ItemGroup>            
+        <SolutionsToBuild Include="git-mish.sln">
+            <DebugRoot>.</DebugRoot>
+            <BuildInParallel>$(BuildInParallel)</BuildInParallel>
+        </SolutionsToBuild>    
+  </ItemGroup>    
+  <Target Name="Clean">
+       <MSBuild
+           Projects="@(SolutionsToBuild)"
+           Targets="Clean"
+           Properties="Configuration=$(Configuration)" />
+       <RemoveDir Directories="bin\%(SolutionsToBuild.DebugRoot)\$(Configuration)" />
+   </Target>
+  <Target Name="RestorePackages" DependsOnTargets="Clean">
+        <MSBuild Projects="@(RestoreCsProjFiles)" Targets="EnableRestore;RestorePackages" StopOnFirstFailure="true" />
+        <MSBuild Projects=".nuget\nuget.targets" Targets="EnableRestore;RestoreBinaryDependencies" />
+  </Target>
+  <Target Name="Build" DependsOnTargets="RestorePackages">
+      <MakeDir Directories="bin\%(SolutionsToBuild.DebugRoot)\$(Configuration)" />
+      <MSBuild
+          Projects="%(SolutionsToBuild.Identity)"
+          BuildInParallel="%(SolutionsToBuild.BuildInParallel)"
+          Targets="Build"
+          Properties="Configuration=$(Configuration);CodeAnalysis=$(CodeAnalysis);StyleCopEnabled=$(StyleCopEnabled)" />
+  </Target>
+  <UsingTask
+		AssemblyFile="Tools\xunit-1.9.1\xunit.runner.msbuild.dll"
+		TaskName="Xunit.Runner.MSBuild.xunit" />
+  <Target Name="UnitTest" DependsOnTargets="Build">
+	<xunit Assembly="bin\Tests\HookService.Tests.dll" />
+  </Target>
+  <Target Name="CleanRestoreBuildTest" DependsOnTargets="UnitTest">
+  </Target>
+</Project>
