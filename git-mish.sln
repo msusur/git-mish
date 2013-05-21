@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HookService", "HookService\HookService.csproj", "{C214939A-161E-4CFC-8E00-3BAFBA48267F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHookController", "GitHook\GitHookController.csproj", "{CEC6023F-BE15-491B-BA19-7B3CC540A804}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HookService.Tests", "HookService.Tests\HookService.Tests.csproj", "{F399F9F2-37AC-4973-873A-352D78EEB3A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C214939A-161E-4CFC-8E00-3BAFBA48267F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C214939A-161E-4CFC-8E00-3BAFBA48267F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C214939A-161E-4CFC-8E00-3BAFBA48267F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C214939A-161E-4CFC-8E00-3BAFBA48267F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEC6023F-BE15-491B-BA19-7B3CC540A804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEC6023F-BE15-491B-BA19-7B3CC540A804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEC6023F-BE15-491B-BA19-7B3CC540A804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEC6023F-BE15-491B-BA19-7B3CC540A804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F399F9F2-37AC-4973-873A-352D78EEB3A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F399F9F2-37AC-4973-873A-352D78EEB3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F399F9F2-37AC-4973-873A-352D78EEB3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F399F9F2-37AC-4973-873A-352D78EEB3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
