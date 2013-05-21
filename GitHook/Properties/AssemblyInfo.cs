@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("GitHook")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A basic git hook handler for creating tasks when git sends a hook request.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("GitHook")]
