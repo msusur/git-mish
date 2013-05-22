@@ -8,7 +8,7 @@ setup
 
 ## Get it on NuGet!
 
-    Install-Package git-mish
+    PM> Install-Package git-mish
 
 ## Compile the code
 
