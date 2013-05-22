@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.Routing;
 using GitHookController.HookHandlers;
 using GitHookController.Models;
 
@@ -49,6 +50,12 @@ namespace GitHookController.Setup
         public void Save()
         {
             HookFactory.AddHookSetupForItem(this);
+        }
+
+        public void Save(RouteCollection routes, string route)
+        {
+            routes.Add(new Route(route, new HookHttpHandler(new HookFactory())));
+            Save();
         }
     }
 }
