@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HookService", "HookService\HookService.csproj", "{C214939A-161E-4CFC-8E00-3BAFBA48267F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HookServiceSandbox", "HookService\HookServiceSandbox.csproj", "{C214939A-161E-4CFC-8E00-3BAFBA48267F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHookController", "GitHook\GitHookController.csproj", "{CEC6023F-BE15-491B-BA19-7B3CC540A804}"
 EndProject

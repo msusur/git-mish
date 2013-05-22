@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="HookService.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="HookServiceSandbox.Global" Language="C#" %>
