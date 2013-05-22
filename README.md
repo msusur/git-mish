@@ -22,9 +22,9 @@ if you are using asp.net application you simply write the following lines,
 
    protected void Application_Start(object sender, EventArgs e)
    {
-      GitHook.SetupForRepository("testing").BranchOf("master").Then<StandardBuildOperation>().Save();
-
-      RouteTable.Routes.Add(new Route("Github/ci", new HookHttpHandler(new HookFactory())));
+       GitHook.SetupForRepository("testing").BranchOf("master")
+                .Then<StandardBuildOperation>()
+                .Save(RouteTable.Routes, "Github/ci");
    }
 
 ```
