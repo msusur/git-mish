@@ -1,12 +1,11 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("GitHook")]
-[assembly: AssemblyDescription("A basic git hook handler for creating tasks when git sends a hook request.")]
+[assembly: AssemblyDescription("A basic git hook handler for creating tasks when git sends a hook request. For more information see http://github.com/msusur/git-mish/blob/master/README.md")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("GitHook")]
