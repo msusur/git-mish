@@ -11,6 +11,10 @@ namespace GitHookController
 {
     public class HookHttpHandler : IHttpHandler, IRouteHandler
     {
+        const String GithubEventHeader = "X-GitHub-Event";
+        const String GithubDeliveryHeader = "X-GitHub-Delivery";
+        const String GithubSignatureHeader = "X-Hub-Signature";
+
         private readonly HookFactory _hookFactory;
 
         public bool IsReusable
@@ -54,6 +58,11 @@ namespace GitHookController
             {
                 throw new InvalidPayloadModelException();
             }
+
+            model.EventName = context.Request.Headers.Get(GithubEventHeader);
+            model.EventIdentifier = context.Request.Headers.Get(GithubDeliveryHeader);
+            model.EventDigest = context.Request.Headers.Get(GithubSignatureHeader);
+
             var gitHook = _hookFactory.GetHook(model);
             gitHook.GetHook(model);
         }
